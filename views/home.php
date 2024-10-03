@@ -9,6 +9,7 @@
 
 <body>
     <h1>Đây là list danh sách sản phẩm</h1>
+    <button><a href="?act=add">Add</a></button>
     <table border="1">
         <thead>
             <tr>
@@ -17,6 +18,7 @@
                 <th>Description</th>
                 <th>Image</th>
                 <th>Price</th>
+                <th>action</th>
             </tr>
         </thead>
         <tbody>
@@ -25,22 +27,14 @@
                     <td><?= $product['id'] ?></td>
                     <td><?= $product['name'] ?></td>
                     <td><?= $product['description'] ?></td>
-                    <td><?= $product['image'] ?></td>
+                    <td><img width="100" src="./img/<?= $product['image'] ?>" alt=""></td>
                     <td><?= $product['price'] ?></td>
+                    <td>
+                        <a href="?act=update&id=<?= $product['id'] ?>"> Update</a>
+                        <a onclick="return confirm('Are you sure')" href="?act=delete&id=<?= $product['id'] ?>">Delete</a>
+                    </td>
                 </tr>
-
             <?php endforeach; ?>
-
-            <?php
-            foreach ($products as $product) {
-                echo "<tr>
-                <td>{$product['id']}</td>
-                <td>{$product['name']}</td>
-                <td>{$product['description']}</td>
-                <td>{$product['image']}</td>
-                <td>{$product['price']}</td></tr>";
-            }
-            ?>
         </tbody>
     </table>
 

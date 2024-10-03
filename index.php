@@ -17,6 +17,25 @@ switch ($act) {
     case 'index':
         $productController->getProducts();
         break;
+    case 'add':
+        $productController->addFormProduct();
+        break;
+
+    case 'create':
+        $productController->createProduct();
+        break;
+    case 'update':
+        $id = $_GET['id'];
+        $productController->updateFormProduct($id);
+        break;
+    case 'edit':
+        $id = $_GET['id'];
+        $productController->editProduct($id);
+        break;
+    case 'delete':
+        $id = $_GET['id'];
+        $productController->deleteProduct($id);
+        break;
     default:
         echo "Doesn't found action";
         break;
